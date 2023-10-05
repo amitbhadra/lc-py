@@ -1,0 +1,16 @@
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        intervals.sort(key = lambda i:i[0])
+
+
+or
+
+class Car:
+    def __init__(self, pos, speed):
+        self.pos = pos
+        self.speed = speed
+
+    def __lt__(self, other):
+        return self.pos < other.pos
+    
+
+Cars.sort()

@@ -1,0 +1,16 @@
+class Car:
+    def __init__(self, pos, speed):
+        self.pos = pos
+        self.speed = speed
+
+    def __lt__(self, other):
+        return self.pos < other.pos
+
+class Solution:
+    def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
+        Cars = []
+        for i in range(len(position)):
+            Cars.append(Car(position[i], speed[i]))
+
+        # min heap
+        heapq.heapify(Cars)
