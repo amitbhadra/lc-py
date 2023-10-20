@@ -1,6 +1,11 @@
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         intervals.sort(key = lambda i:i[0])
 
+or
+
+tasks = [[1,2], [4,3]]
+# sort using start time
+tasks = sorted((start, end, index) for index, (start, end) in enumerate(tasks))
 
 or
 
