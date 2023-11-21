@@ -10,7 +10,7 @@ class Solution:
 
         # Dijkstra (uses BFS)
         minHeap = [[0, -1, src]] #[cost, dist, airport]
-        minCostHash = {} #[cost]
+        # minCostHash = {} #[cost]
 
         while minHeap:
             cost1, dist1, airport1 = heapq.heappop(minHeap)
@@ -18,13 +18,14 @@ class Solution:
             # This is Dijkstra guarantee
             if airport1 == dst: return cost1
 
-            if airport1 in minCostHash:
-                if cost1 < minCostHash[airport1]:
-                    minCostHash[airport1] = cost1
-            else:
-                minCostHash[airport1] = cost1
+            # if airport1 in minCostHash:
+            #     if cost1 < minCostHash[airport1]:
+            #         minCostHash[airport1] = cost1
+            # else:
+            #     minCostHash[airport1] = cost1
 
             if dist1 + 1 <= k:
                 for cost, nei in adjList[airport1]:
                     heapq.heappush(minHeap, [cost+cost1, dist1+1, nei])
+        return -1
         return minCostHash[dst] if dst in minCostHash else -1
